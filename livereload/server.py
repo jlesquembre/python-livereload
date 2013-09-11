@@ -164,7 +164,7 @@ class IndexHandler(RequestHandler):
                 self.write(data)
 
             hasher = hashlib.sha1()
-            hasher.update(data)
+            hasher.update(data.encode('utf8'))
             self.set_header('Etag', '"%s"' % hasher.hexdigest())
             return
         self.send_error(404)
