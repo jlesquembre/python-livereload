@@ -110,7 +110,7 @@ class LiveReloadHandler(websocket.WebSocketHandler):
                     execfile('Guardfile', {})
                 elif os.path.exists('Guardfile.py'):
                     logging.info('Reading Guardfile.py')
-                    ret = execfile('Guardfile.py', {})
+                    ret = execfile('Guardfile.py', globals())
                 else:
                     logging.info('No Guardfile')
                     Task.add(os.getcwd())
